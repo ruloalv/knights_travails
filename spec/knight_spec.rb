@@ -39,4 +39,16 @@ describe Knight do
 			end
 		end
 	end
+
+	describe '#knight_moves' do
+		before do
+			allow(knight).to receive(:display_path)
+		end
+		context 'given a initial position and a final position, print the path' do
+			subject(:knight) {described_class.new([1,1])}
+			it 'moves from [1,1] to [3,2]' do
+				expect(knight.knight_moves([1,1],[3,2])).to eq([3,2])
+			end
+		end
+	end
 end
