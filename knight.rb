@@ -9,5 +9,7 @@ class knight
 		@history = [].push(position)
 	end
 
-	
+	def valid_position(position)
+		position[0].between?(0,7) && position[1].between?(0,7)
+	end
 end
