@@ -7,8 +7,11 @@ describe Knight do
 			it 'return history ==[[0,0]]' do
 				expect(knight_new.history).to eq([[0,0]])
 			end
-			it 'return position and from == [0,0]' do
+			it 'return position == [0,0]' do
 				expect(knight_new.position).to eq([0,0])
+			end
+			it 'return parent to be nil' do
+				expect(knight_new.parent).to be_nil
 			end
 		end
 	end
@@ -41,9 +44,6 @@ describe Knight do
 	end
 
 	describe '#knight_moves' do
-		before do
-			allow(knight).to receive(:display_path)
-		end
 		context 'given a initial position and a final position, print the path' do
 			subject(:knight) {described_class.new([1,1])}
 			it 'moves from [1,1] to [3,2]' do
