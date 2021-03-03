@@ -21,6 +21,8 @@ class Knight
 	end
 
 	def display_path(node)
+		display_path(node.parent) unless node.parent.nil?
+		p node.position
 	end
 
 	def knight_moves(origin, final)
