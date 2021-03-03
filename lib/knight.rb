@@ -4,7 +4,7 @@ class Knight
 	
 	@@MOVES = [[-1,+2],[-1,-2],[+1,+2],[+1,-2],[+2,-1],[+2,+1],[-2,-1],[-2,+1]]
 
-	def initialize(position, parent = nil)
+	def initialize(position = [0,0], parent = nil)
 		@position = position
 		@parent = parent
 		@history = [].push(position)
@@ -28,7 +28,7 @@ class Knight
 		lvl_order = []
 		
 		until current_node.position == final
-			current_node.posible_moves.each {|pos| lvl_order.push(Knight.new(pos, current_node)}
+			current_node.posible_moves.each {|pos| lvl_order.push(Knight.new(pos, current_node))}
 			current_node = lvl_order.shift
 		end
 		display_path(current_node)
